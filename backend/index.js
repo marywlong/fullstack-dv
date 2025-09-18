@@ -7,22 +7,22 @@ dotenv.config();
 import { db } from "./util/FirebaseInit.js";
 import { collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
 
-const app = express();
-const port = process.env.PORT;
+const APP = express();
+const PORT = 8080;
 
-app.use(express.json());
-app.use(
+APP.use(express.json());
+APP.use(
 	cors({
-		origin: process.env.CORS_ORIGIN
+		origin: "http://localhost:3000"
 	})
 )
-app.use(bodyParser.urlencoded({ extended: false }));
+APP.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
+APP.get("/", (req, res) => {
     res.status(200).send("Hello World!");
 });
 
-app.get("/projects", async (req, res) => {
+APP.get("/projects", async (req, res) => {
     try {
         const ref = collection(db, "projects");
         const snap = await getDocs(ref);
@@ -34,7 +34,7 @@ app.get("/projects", async (req, res) => {
     }
 });
 
-app.post("/projects", async (req, res) => {
+APP.post("/projects", async (req, res) => {
     try {
         const { name, date, course, description } = req.body || {};
         if (!name || !date || !course || !description ) {
@@ -54,7 +54,7 @@ app.post("/projects", async (req, res) => {
     }
 });
 
-app.delete("/projects/:id", async (req, res) => {
+APP.delete("/projects/:id", async (req, res) => {
     try {
         const id = req.params.id;
         await deleteDoc(doc(db, "projects", id));
@@ -66,8 +66,8 @@ app.delete("/projects/:id", async (req, res) => {
 });
 
 function start() {
-	app.listen(port, () => {
-		console.log(`Started listening on http://localhost:${port}`)
+	APP.listen(PORT, () => {
+		console.log(`Started listening on http://localhost:${PORT}`)
 	})
 }
 
