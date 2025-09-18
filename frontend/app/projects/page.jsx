@@ -156,4 +156,10 @@ export default function ProjectsPage() {
         </div>
 
         {error && <p className={styles.error}>{error}</p>}
-     
+        <button className={styles.button} disabled={!isValid || submitting}>
+          {submitting ? "Adding…" : "Add project"}
+        </button>
+      </form>
+    </main>
+  );
+}

@@ -30,6 +30,4 @@ export async function createItem(payload) {
 }
 
 export async function deleteItem(id) {
-    const res = await fetch(`http://localhost:8080/projects/${id}`, { method: "DELETE" });
-    if (!res.ok && res.status !== 204) throw new Error("Failed to delete");
-}
+    const res = await fetch(`
