@@ -8,8 +8,8 @@
     display: grid;
     gap: 0.75rem;
     margin: 1rem 0 2rem;
-    background: #fafafa;
-    border: 1px solid #eee;
+    background: #f75d5d;
+    border: 1px solid #710000;
     border-radius: 10px;
     padding: 1rem;
 }
@@ -26,26 +26,26 @@
 .row input,
 .row textarea {
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid #e5f532;
     border-radius: 8px;
 }
 
-/* button {
-    border: 1px solid #222;
-    background: #222;
-    color: #fff;
+.wrap button {
+    border: 1px solid #fdbcbc;
+    background: #aedfff;
+    color: #abffb9;
     border-radius: 8px;
     padding: 0.5rem 0.9rem;
     cursor: pointer;
 }
 
-button:disabled {
+.wrap button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
-} */
+}
 
 .error {
-    color: #b00020;
+    color: #bd2b46;
 }
 
 .tableWrap {
@@ -59,21 +59,16 @@ button:disabled {
 
 .table thead th {
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #c6c250;
     padding: 0.5rem;
 }
 
 .table tbody td {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #86b2c2;
     padding: 0.5rem;
     vertical-align: top;
 }
 
 .danger {
-    background: #b00020;
-    border-color: #b00020;
-}
-
-.empty {
-    color: #666;
-}
+    background: #5f0213;
+    border-color: #3e071

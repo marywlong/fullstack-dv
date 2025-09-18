@@ -94,7 +94,7 @@ export default function ProjectsPage() {
           />
         </div>
         {error && <p className={styles.error}>{error}</p>}
-        <button disabled={!isValid || submitting}>{submitting ? "Adding…" : "Add project"}</button>
+        <button className={styles.wrap} disabled={!isValid || submitting}>{submitting ? "Adding…" : "Add project"}</button>
       </form>
 
       <section className={styles.tableWrap}>

@@ -9,20 +9,19 @@ export default function Home() {
         <Image
         // add pic of me
           className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/me.JPG"
+          alt="picture of me!"
+          width={150}
           priority
         />
 
-        <ol>
+        <ul>
           <li>
             This is my mini site for fullstack using next.js, express, and firebase!
           </li>
           <li>Click below to see a list of my projects from my computer science classes</li>
           <li><a href="/projects">Projects</a></li>
-        </ol>
+        </ul>
       </main>
 
       <footer className={styles.footer}>
@@ -33,10 +32,10 @@ export default function Home() {
         <a href="https://github.com/marywlong/fullstack-dv.git">
           <Image
           // add github pic
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/github.png"
+            alt="github image"
+            width={25}
+            height={25}
           />
         </a>
       </footer>
