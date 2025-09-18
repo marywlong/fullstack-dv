@@ -121,4 +121,7 @@ export default function ProjectsPage() {
             </tbody>
           </table>
         }
-      </sec
+      </section>
+    </main>
+  );
+}
