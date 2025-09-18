@@ -5,39 +5,35 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1>Welcome!</h1>
+        <h1 className={styles.title}>Welcome!</h1>
+
         <Image
-        // add pic of me
-          className={styles.logo}
+          className={styles.heroImage}
           src="/me.JPG"
-          alt="picture of me!"
-          width={150}
+          alt="picture of me"
+          width={400}
+          height={550}
           priority
         />
 
-        <ul>
-          <li>
-            This is my mini site for fullstack using next.js, express, and firebase!
-          </li>
-          <li>Click below to see a list of my projects from my computer science classes</li>
-          <li><a href="/projects">Projects</a></li>
+        <ul className={styles.list}>
+          <li>This is my mini site for fullstack using Next.js, Express, and Firebase!</li>
+          <li>Click below to see a list of my projects from my computer science classes.</li>
         </ul>
+
+        <a href="/projects" className={styles.button}>Projects</a>
       </main>
 
       <footer className={styles.footer}>
-        <div className={styles.p}>
-          <p>this is my footer. click the picture below to see my github repository for this page!!</p>
+
+        <div className={styles.footerText}>
+          <p> 
+            this is my footer. click the picture below to see my github repository for this page!! <br /> 
+            <a href="https://github.com/marywlong/fullstack-dv.git" className={styles.ghLink} aria-label="open Github Repository"> 
+              <Image src="/github.png" alt="github image" width={30} height={30}/> 
+            </a> 
+          </p> 
         </div>
-          
-        <a href="https://github.com/marywlong/fullstack-dv.git">
-          <Image
-          // add github pic
-            src="/github.png"
-            alt="github image"
-            width={25}
-            height={25}
-          />
-        </a>
       </footer>
     </div>
   );

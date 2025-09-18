@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { listItems, createItem, deleteItem } from "@/lib/api";
+import { listItems, createItem, deleteItem } from "../../lib/api";
 import styles from "./styles.module.css";
 
 export default function ProjectsPage() {

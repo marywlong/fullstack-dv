@@ -1,160 +1,117 @@
 .page {
-
-  --button-primary-hover: #ea1212;
-  --button-secondary-hover: #14c6f3;
-
   display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
+  grid-template-rows: auto 1fr auto;
   min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: light) {
-  .page {
-    --button-primary-hover: #f570da;
-    --button-secondary-hover: #5ed893;
-  }
+  padding: 32px 16px;
+  row-gap: 32px;
+  font-family: var(--font-sans);
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  gap: 20px;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
+.title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 40px);
   margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.heroImage {
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .08);
+  margin: 0 auto;
 }
 
-.main code {
-  font-family: inherit;
-  background: pink;
-  padding: 2px 4px;
-  border-radius: 4px;
+.list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.list li {
+  position: relative;
+  padding-left: 28px;
+  margin: 8px 0;
+}
+
+.list li::before {
+  content: "✦";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: var(--brand-ink);
+  text-decoration: none;
   font-weight: 600;
+  letter-spacing: .2px;
+  transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 6px 18px rgba(90, 103, 216, .25);
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-a.primary {
-  background: orange;
-  color: orangered;
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: green;
-  min-width: 158px;
+.button:hover,
+.button:focus-visible {
+  background: var(--brand-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(67, 74, 161, .35);
+  outline: none;
 }
 
 .footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
+  max-width: 720px;
+  margin: 0 auto 12px;
+  display: grid;
+  justify-items: center;
   gap: 8px;
+  text-align: center;
 }
 
-.footer img {
-  flex-shrink: 0;
+.footerText {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
+.ghLink {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  transition: transform .12s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .08);
+}
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+.ghLink:hover,
+.ghLink:focus-visible {
+  transform: translateY(-1px) scale(1.05);
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .18));
+  outline: none;
 }
 
 @media (max-width: 600px) {
   .page {
-    padding: 32px;
-    padding-bottom: 80px;
+    padding: 24px 12px;
   }
 
   .main {
-    align-items: center;
+    gap: 16px;
   }
 
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .logo {
-    filter: invert();
+  .list {
+    max-width: 100%;
   }
 }
