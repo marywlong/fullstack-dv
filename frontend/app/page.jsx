@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome!</h1>
+        <h1 className={styles.title}>hiiiii :P</h1>
 
         <Image
           className={styles.heroImage}

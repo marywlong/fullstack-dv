@@ -2,16 +2,13 @@
   --font-sans: system-ui, sans-serif;
   --font-serif: Georgia, serif;
 
-  /* palette */
   --bg: #ffffff;
   --fg: #1a1a1a;
   --muted: #666;
   --brand: #5a67d8;
-  /* indigo-ish */
   --brand-ink: #ffffff;
   --brand-hover: #434aa1;
   --accent: #ff7ca3;
-  /* pink-ish */
 }
 
 html,

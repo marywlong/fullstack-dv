@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Poppins, Source_Serif_4 } from "next/font/google";
 
-export const metadata = { title: "Mary | Fullstack Mini Site" };
+export const metadata = { title: "mwl's mini fullstack site!" };
 
 const poppins = Poppins({ 
   subsets: ["latin"], 

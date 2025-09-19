@@ -11,11 +11,23 @@ const APP = express();
 const PORT = 8080;
 
 APP.use(express.json());
+
+const allowedOrigins = [
+  "http://localhost:3000",
+];
+
 APP.use(
-	cors({
-		origin: "http://localhost:3000"
-	})
-)
+  cors({
+    origin: function (origin, cb) {
+      if (!origin) return cb(null, true);
+      cb(null, allowedOrigins.includes(origin));
+    },
+    methods: ["GET", "POST", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
+
 APP.use(bodyParser.urlencoded({ extended: false }));
 
 APP.get("/", (req, res) => {
@@ -60,15 +72,4 @@ APP.delete("/projects/:id", async (req, res) => {
         await deleteDoc(doc(db, "projects", id));
         res.status(204).end();
     } catch (err) {
-        console.error("DELETE /projects/:id error:", err);
-        res.status(500).json({ error: "Failed to delete entry" });
-    }
-});
-
-function start() {
-	APP.listen(PORT, () => {
-		console.log(`Started listening on http://localhost:${PORT}`)
-	})
-}
-
-start()
+        console.error("DELETE /p

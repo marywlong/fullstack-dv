@@ -1,11 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-// import { listItems, createItem, deleteItem } from "../../lib/api";
+import { listItems, createItem, deleteItem } from "../../lib/api"; 
 import styles from "./styles.module.css";
-
-import { listItems, createItem, deleteItem, _DEBUG_MARK } from "../../lib/api"; // or "../../lib/api" — see Step 2
-console.log("[projects] _DEBUG_MARK = ", _DEBUG_MARK);
 
 export default function ProjectsPage() {
   const [items, setItems] = useState([]);
@@ -73,9 +70,8 @@ export default function ProjectsPage() {
 
   return (
     <main className={styles.wrap}>
-      <h1>Projects</h1>
+      <h1 className={styles.title}>Projects</h1>
 
-      {/* TABLE FIRST */}
       <section className={styles.tableWrap}>
         {loading ? (
           <p>Loading…</p>
@@ -101,10 +97,8 @@ export default function ProjectsPage() {
                   <td>{p.description}</td>
                   <td>
                     {p.id && (
-                      <button
-                        className={styles.danger}
-                        onClick={() => onDelete(p.id)}
-                      >
+                      <button className={`${styles.button} ${styles.danger}`}
+                          onClick={() => onDelete(p.id)}>
                         Delete
                       </button>
                     )}
@@ -116,14 +110,13 @@ export default function ProjectsPage() {
         )}
       </section>
 
-      {/* FORM SECOND */}
       <form onSubmit={onSubmit} className={styles.form}>
         <div className={styles.row}>
           <label>Name</label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="e.g., Project 1"
+            placeholder="ex Project 1"
             required
           />
         </div>
@@ -141,7 +134,7 @@ export default function ProjectsPage() {
           <input
             value={course}
             onChange={(e) => setCourse(e.target.value)}
-            placeholder="CS200"
+            placeholder="course name/number"
             required
           />
         </div>
