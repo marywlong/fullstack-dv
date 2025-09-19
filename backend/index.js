@@ -72,4 +72,15 @@ APP.delete("/projects/:id", async (req, res) => {
         await deleteDoc(doc(db, "projects", id));
         res.status(204).end();
     } catch (err) {
-        console.error("DELETE /p
+        console.error("DELETE /projects/:id error:", err);
+        res.status(500).json({ error: "Failed to delete entry" });
+    }
+});
+
+function start() {
+	APP.listen(PORT, () => {
+		console.log(`Started listening on http://localhost:${PORT}`)
+	})
+}
+
+start()
